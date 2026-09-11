@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../helpers/app_url_helper.php';
+
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 /**
  * ------------------------------------------------------------------
@@ -44,4 +46,21 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 /** @var object $router **/
 
-$router->get('/', 'Welcome::index');
+// Auth routes
+$router->get('/login', 'AuthController::login');
+$router->post('/login', 'AuthController::authenticate');
+$router->get('/logout', 'AuthController::logout');
+
+// Product CRUD routes
+$router->get('/products', 'ProductController::index');
+$router->get('/products/create', 'ProductController::create');
+$router->post('/products/store', 'ProductController::store');
+$router->get('/products/edit/{id}', 'ProductController::edit');
+$router->post('/products/update/{id}', 'ProductController::update');
+$router->get('/products/delete/{id}', 'ProductController::delete');
+
+// Redirect root to products
+$router->get('/', function() {
+    header('Location: ' . app_url('/products'));
+    exit;
+});
