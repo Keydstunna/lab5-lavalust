@@ -99,7 +99,7 @@
     <!-- Quote + social links footer -->
     <div class="dash-footer">
       <div class="quote-card glass">
-        <div class="quote-text">"You can't win at everything, but you can smile."</div>
+        <div class="quote-text">"You can't win at everything, but you can try."</div>
         <div class="quote-author">— Eraserheads</div>
         <div class="quote-desc">Some days the numbers add up, some days they don't — but there's always something small worth being glad about. Keep building anyway.</div>
       </div>
